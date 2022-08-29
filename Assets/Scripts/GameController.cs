@@ -141,11 +141,35 @@ public class GameController : MonoBehaviour
     public static void ShowGameOver()
     {
         instance.gameOver.SetActive(true);
+        PauseGame();
     }
 
     public static void RestartGame(string levelName)
     {
+        ResumeGame();
         SceneManager.LoadScene(levelName);
+    }
+
+    public static void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public static void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public static void TogglePauseResume()
+    {
+        if (Time.timeScale == 0)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
     }
 
 }

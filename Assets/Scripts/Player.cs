@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Jump();
+        Pause();
     }
 
     void Move()
@@ -82,6 +83,14 @@ public class Player : MonoBehaviour
             {
                 rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             }
+        }
+    }
+
+    void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameController.TogglePauseResume();
         }
     }
 
