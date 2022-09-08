@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject gameOver;
     public GameObject scoreGroup;
     public GameObject newGameGroup;
+    public GameObject inGameMenu;
 
     public GameObject player;
 
@@ -126,7 +127,7 @@ public class GameController : MonoBehaviour
         // https://stackoverflow.com/questions/54431635/is-there-a-keyboard-shortcut-to-maximize-the-game-window-in-unity-in-play-mode#answer-60230758
         // Pressiona Esc para alternar entre tela cheia ou não
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             UnityEditor.EditorWindow.focusedWindow.maximized = !UnityEditor.EditorWindow.focusedWindow.maximized;
         }
@@ -165,9 +166,11 @@ public class GameController : MonoBehaviour
         if (Time.timeScale == 0)
         {
             ResumeGame();
+            instance.inGameMenu.SetActive(false);
         }
         else
         {
+            instance.inGameMenu.SetActive(true);
             PauseGame();
         }
     }

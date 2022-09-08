@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             GameController.TogglePauseResume();
         }
